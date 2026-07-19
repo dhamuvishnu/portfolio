@@ -76,9 +76,9 @@ section {
     box-shadow: 0 0 10px var(--accent);
 }
 
-/* ==========================================================
+/* ==========================================
    NAVIGATION BAR
-   ========================================================== */
+   ========================================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -141,9 +141,9 @@ section {
     transition: var(--transition);
 }
 
-/* ==========================================================
+/* ==========================================
    HERO / HOME SECTION
-   ========================================================== */
+   ========================================== */
 .hero-section {
     min-height: 100vh;
     display: flex;
@@ -181,51 +181,59 @@ section {
     margin-bottom: 3rem;
 }
 
-/* Interactive Buttons */
+/* Interactive Buttons - 3D Capsule Gradient Style */
 .hero-ctas {
     display: flex;
     gap: 1.5rem;
 }
 
-.btn {
+.btn-pill-3d {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0.85rem 2rem;
-    border-radius: 4px;
-    font-size: 0.95rem;
-    font-weight: 600;
+    padding: 0.85rem 2.5rem;
+    border-radius: 50px; /* Fully rounded pill shape */
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #ffffff;
+    border: none;
     cursor: pointer;
+    /* Rich sunset gradient: Dark red -> Cherry Red -> Vibrant Orange */
+    background: linear-gradient(90deg, #9b1c2e 0%, #d32f2f 40%, #f57c00 100%);
+    /* Creates the solid 3D bottom plate edge and a softer dark shadow below it */
+    box-shadow: 
+        0 6px 0px #7b111c, 
+        0 12px 20px rgba(0, 0, 0, 0.4);
+    transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.btn-primary {
-    background-color: var(--accent);
-    color: var(--bg-dark);
-    box-shadow: 0 4px 20px rgba(0, 242, 254, 0.25);
-}
-
-.btn-primary:hover {
+.btn-pill-3d:hover {
+    background: linear-gradient(90deg, #b72237 0%, #e53935 40%, #ff9800 100%);
     transform: translateY(-2px);
-    box-shadow: 0 6px 24px rgba(0, 242, 254, 0.4);
+    box-shadow: 
+        0 8px 0px #8d1422, 
+        0 14px 25px rgba(0, 0, 0, 0.45);
 }
 
-.btn-secondary {
-    border: 1px solid var(--border-color);
-    color: var(--text-primary);
-    background-color: transparent;
+.btn-pill-3d:active {
+    /* Pushes cleanly downward into the shadow on click */
+    transform: translateY(4px);
+    box-shadow: 
+        0 2px 0px #5c0a13, 
+        0 4px 10px rgba(0, 0, 0, 0.5);
 }
 
-.btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.03);
-    border-color: var(--text-secondary);
-    transform: translateY(-2px);
-}
-
-/* Modern wide button modifier */
-.btn-resume-wide {
-    width: 480px;
+.btn-work-pill {
+    width: 200px;
     text-align: center;
-    border-radius: 10px;
+}
+
+.btn-resume-pill {
+    width: 440px;
+    text-align: center;
 }
 
 /* Photo Area Visual - Modern Circular Frame */
@@ -237,7 +245,7 @@ section {
 .profile-frame.circle-frame {
     width: 320px;
     height: 320px;
-    border-radius: 50%; /* Makes outer frame a perfect circle */
+    border-radius: 50%;
     border: 1px solid var(--border-color);
     padding: 12px;
     background: linear-gradient(145deg, #111520, #0a0c10);
@@ -248,7 +256,7 @@ section {
     content: '';
     position: absolute;
     inset: -1px;
-    border-radius: 50%; /* Keeps gradient ring circular */
+    border-radius: 50%;
     background: linear-gradient(45deg, transparent, var(--border-color), var(--accent), transparent);
     z-index: -1;
     opacity: 0.5;
@@ -258,12 +266,12 @@ section {
     width: 100%;
     height: 100%;
     background-color: var(--bg-card);
-    border-radius: 50%; /* Internal container circle */
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px dashed var(--border-color);
-    overflow: hidden; /* Ensures image cannot bleed past circular edge */
+    overflow: hidden;
 }
 
 .profile-placeholder i {
@@ -275,7 +283,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover; 
-    border-radius: 50%; /* Makes image perfectly round */
+    border-radius: 50%;
 }
 
 /* ==========================================
@@ -859,11 +867,14 @@ section {
         width: 95%;
     }
     
+    /* Layout stacks cleanly into mobile column layout */
     .hero-ctas {
         flex-direction: column;
         align-items: stretch;
+        gap: 1.25rem;
     }
-    .btn-resume-wide {
+    .btn-work-pill,
+    .btn-resume-pill {
         width: 100%;
     }
 }
