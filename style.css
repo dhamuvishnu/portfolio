@@ -908,3 +908,72 @@ section {
         margin-top: 2rem;
     }
 }
+/* Container to align them side-by-side */
+.button-group {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 25px;
+}
+
+/* 1. The Cyan Button Style (From your original image) */
+.btn-work-cyan {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 54px;
+    background-color: #00f0ff;
+    color: #000000;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    transition: all 0.3s ease;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.btn-work-cyan:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 30px rgba(0, 240, 255, 0.7);
+}
+
+/* 2. The New Modern Resume Button Style */
+.btn-resume-modern {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    /* Spans wider just like the layout in the image */
+    width: 480px; 
+    height: 54px;
+    background-color: #3ca9eb;
+    color: #000000;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none;
+    /* Soft modern rounded corners matching the graphic */
+    border-radius: 10px; 
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-resume-modern:hover {
+    background-color: #4db7fc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(60, 169, 235, 0.3);
+}
+
+/* Responsive adjustment for smaller mobile screens */
+@media (max-width: 768px) {
+    .button-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .btn-work-cyan, 
+    .btn-resume-modern {
+        width: 100%; /* Stack fully on small mobile screens */
+        max-width: 100%;
+    }
+}
