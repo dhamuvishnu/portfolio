@@ -1,6 +1,6 @@
-/* ==========================================
+/* ==========================================================
    DESIGN SYSTEM & VARIABLES
-   ========================================== */
+   ========================================================== */
 :root {
     --bg-dark: #0a0c10;
     --bg-card: #12161f;
@@ -15,9 +15,9 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ==========================================
+/* ==========================================================
    BASE & RESET STYLES
-   ========================================== */
+   ========================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -76,9 +76,9 @@ section {
     box-shadow: 0 0 10px var(--accent);
 }
 
-/* ==========================================
+/* ==========================================================
    NAVIGATION BAR
-   ========================================== */
+   ========================================================== */
 .navbar {
     position: fixed;
     top: 0;
@@ -141,9 +141,9 @@ section {
     transition: var(--transition);
 }
 
-/* ==========================================
+/* ==========================================================
    HERO / HOME SECTION
-   ========================================== */
+   ========================================================== */
 .hero-section {
     min-height: 100vh;
     display: flex;
@@ -188,7 +188,9 @@ section {
 }
 
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.85rem 2rem;
     border-radius: 4px;
     font-size: 0.95rem;
@@ -219,46 +221,61 @@ section {
     transform: translateY(-2px);
 }
 
-/* Photo Area Visual placeholder */
+/* Modern wide button modifier */
+.btn-resume-wide {
+    width: 480px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* Photo Area Visual - Modern Circular Frame */
 .hero-visual {
     display: flex;
     justify-content: center;
 }
 
-.profile-frame {
+.profile-frame.circle-frame {
     width: 320px;
     height: 320px;
-    border-radius: 8px;
+    border-radius: 50%; /* Makes outer frame a perfect circle */
     border: 1px solid var(--border-color);
     padding: 12px;
     background: linear-gradient(145deg, #111520, #0a0c10);
     position: relative;
 }
 
-.profile-frame::before {
+.profile-frame.circle-frame::before {
     content: '';
     position: absolute;
     inset: -1px;
-    border-radius: 9px;
+    border-radius: 50%; /* Keeps gradient ring circular */
     background: linear-gradient(45deg, transparent, var(--border-color), var(--accent), transparent);
     z-index: -1;
     opacity: 0.5;
 }
 
-.profile-placeholder {
+.profile-placeholder.circle-placeholder {
     width: 100%;
     height: 100%;
     background-color: var(--bg-card);
-    border-radius: 4px;
+    border-radius: 50%; /* Internal container circle */
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px dashed var(--border-color);
+    overflow: hidden; /* Ensures image cannot bleed past circular edge */
 }
 
 .profile-placeholder i {
     font-size: 4rem;
     color: rgba(0, 242, 254, 0.2);
+}
+
+.profile-img.circle-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    border-radius: 50%; /* Makes image perfectly round */
 }
 
 /* ==========================================
@@ -509,107 +526,6 @@ section {
 }
 
 /* ==========================================
-   CONTACT & FOOTER
-   ========================================== */
-.contact-section {
-    padding: 6rem 0 3rem 0;
-    background-color: #06080b;
-    border-bottom: none;
-    text-align: center;
-}
-
-.contact-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-}
-
-.contact-content p {
-    color: var(--text-secondary);
-    max-width: 600px;
-    margin: 0 auto 3rem auto;
-    font-size: 1.1rem;
-}
-
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-bottom: 5rem;
-}
-
-.social-links a {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 1px solid var(--border-color);
-    background-color: var(--bg-card);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.25rem;
-    color: var(--text-primary);
-}
-
-.social-links a:hover {
-    color: var(--bg-dark);
-    background-color: var(--accent);
-    border-color: var(--accent);
-    box-shadow: 0 0 15px var(--accent);
-    transform: translateY(-3px);
-}
-
-.footer-bottom {
-    border-top: 1px solid var(--border-color);
-    padding-top: 2rem;
-    color: rgba(139, 155, 180, 0.4);
-    font-size: 0.85rem;
-}
-
-/* ==========================================
-   RESPONSIVE MEDIA QUERIES
-   ========================================== */
-@media (max-width: 968px) {
-    .hero-grid, .about-grid, .project-body {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-    .hero-visual {
-        order: -1;
-    }
-    .hero-text {
-        text-align: center;
-    }
-    .subheadline {
-        margin: 0 auto 3rem auto;
-    }
-    .hero-ctas {
-        justify-content: center;
-    }
-    .project-deep-dive {
-        padding: 2rem;
-    }
-}
-
-@media (max-width: 768px) {
-    section {
-        padding: 5rem 0;
-    }
-    .hero-text h1 {
-        font-size: 2.75rem;
-    }
-    .nav-links {
-        display: none; /* Mobile menu behavior can be enabled via script toggles */
-    }
-    .menu-toggle {
-        display: block;
-    }
-}.profile-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Keeps your face perfectly framed without stretching */
-    border-radius: 4px;
-}/* ==========================================
    CERTIFICATES GALLERY GRID SYSTEM
    ========================================== */
 .gallery-section {
@@ -650,12 +566,13 @@ section {
     background-color: #0f131a;
     border-bottom: 1px solid var(--border-color);
     overflow: hidden;
+    cursor: pointer;
 }
 
 .gallery-item .image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Crops uniformly; use 'contain' if you want to see full edges */
+    object-fit: cover; 
     transition: var(--transition);
 }
 
@@ -680,30 +597,27 @@ section {
     font-size: 1.1rem;
     font-weight: 600;
     color: var(--text-primary);
-}/* ==========================================
-   FULL-SCREEN LIGHTBOX MODAL STYLING
-   ========================================== */
-.gallery-item .image-container {
-    cursor: pointer; /* Changes mouse cursor to a pointer hand on hover */
 }
 
+/* ==========================================
+   FULL-SCREEN LIGHTBOX MODAL STYLING
+   ========================================== */
 .lightbox-modal {
-    display: none; /* Hidden by default */
+    display: none; 
     position: fixed;
-    z-index: 2000; /* Layered way above navigation bars */
+    z-index: 2000; 
     padding-top: 60px;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(6, 8, 11, 0.95); /* Deep translucent charcoal black background */
-    backdrop-filter: blur(10px); /* Modern blur effect */
+    background-color: rgba(6, 8, 11, 0.95); 
+    backdrop-filter: blur(10px); 
     opacity: 0;
     transition: opacity 0.3s ease;
 }
 
-/* Class added by JavaScript when opening */
 .lightbox-modal.show {
     display: flex;
     justify-content: center;
@@ -711,7 +625,6 @@ section {
     opacity: 1;
 }
 
-/* The Certificate Image Dimensions */
 .lightbox-content {
     margin: auto;
     display: block;
@@ -730,7 +643,6 @@ section {
     transform: scale(1);
 }
 
-/* Close Action Button Details */
 .lightbox-close {
     position: absolute;
     top: 25px;
@@ -747,11 +659,7 @@ section {
     color: var(--accent);
 }
 
-@media (max-width: 768px) {
-    .lightbox-content {
-        width: 95%;
-    }
-}/* ==========================================
+/* ==========================================
    SPLIT CONTACT SECTION & FORM MODULE
    ========================================== */
 .contact-section {
@@ -764,14 +672,13 @@ section {
     display: grid;
     grid-template-columns: 1fr 1.1fr;
     gap: 4rem;
-    background-color: #121824; /* Deep charcoal container box tint */
+    background-color: #121824; 
     border: 1px solid #1e293b;
     border-radius: 12px;
     padding: 3.5rem;
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Left Panel Elements */
 .contact-info-panel {
     display: flex;
     flex-direction: column;
@@ -818,7 +725,7 @@ section {
 }
 
 .meta-icon-cyan {
-    color: #38bdf8; /* Energetic tech blue/cyan tint */
+    color: #38bdf8; 
     font-size: 1.2rem;
     width: 20px;
     text-align: center;
@@ -827,7 +734,7 @@ section {
 .contact-social-tray {
     display: flex;
     gap: 1.25rem;
-    margin-top: auto; /* Pushes tray down cleanly */
+    margin-top: auto; 
 }
 
 .contact-social-tray a {
@@ -841,7 +748,6 @@ section {
     transform: translateY(-2px);
 }
 
-/* Right Panel Form Controls */
 .contact-form-panel {
     display: flex;
     flex-direction: column;
@@ -855,7 +761,7 @@ section {
 .contact-form-panel input,
 .contact-form-panel textarea {
     width: 100%;
-    background-color: #0b0f19; /* Darker inputs contrast */
+    background-color: #0b0f19; 
     border: 1px solid #1e293b;
     border-radius: 6px;
     padding: 1rem 1.25rem;
@@ -870,14 +776,12 @@ section {
     resize: none;
 }
 
-/* Subtle focus border transitions */
 .contact-form-panel input:focus,
 .contact-form-panel textarea:focus {
     border-color: #38bdf8;
     box-shadow: 0 0 0 1px #38bdf8;
 }
 
-/* Flat Accent Interactive Action Button */
 .btn-submit-cyan {
     width: 100%;
     background-color: #38bdf8;
@@ -897,8 +801,37 @@ section {
     box-shadow: 0 4px 20px rgba(56, 189, 248, 0.25);
 }
 
-/* Responsive Structural Breakpoints */
-@media (max-width: 992px) {
+.footer-bottom {
+    border-top: 1px solid var(--border-color);
+    padding-top: 2rem;
+    color: rgba(139, 155, 180, 0.4);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* ==========================================
+   RESPONSIVE MEDIA QUERIES
+   ========================================== */
+@media (max-width: 968px) {
+    .hero-grid, .about-grid, .project-body {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    .hero-visual {
+        order: -1;
+    }
+    .hero-text {
+        text-align: center;
+    }
+    .subheadline {
+        margin: 0 auto 3rem auto;
+    }
+    .hero-ctas {
+        justify-content: center;
+    }
+    .project-deep-dive {
+        padding: 2rem;
+    }
     .contact-card-box {
         grid-template-columns: 1fr;
         gap: 3rem;
@@ -908,72 +841,29 @@ section {
         margin-top: 2rem;
     }
 }
-/* Container to align them side-by-side */
-.button-group {
-    display: flex;
-    gap: 20px;
-    align-items: center;
-    margin-top: 25px;
-}
 
-/* 1. The Cyan Button Style (From your original image) */
-.btn-work-cyan {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 160px;
-    height: 54px;
-    background-color: #00f0ff;
-    color: #000000;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    border-radius: 6px;
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
-    transition: all 0.3s ease;
-    text-align: center;
-    line-height: 1.2;
-}
-
-.btn-work-cyan:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 30px rgba(0, 240, 255, 0.7);
-}
-
-/* 2. The New Modern Resume Button Style */
-.btn-resume-modern {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    /* Spans wider just like the layout in the image */
-    width: 480px; 
-    height: 54px;
-    background-color: #3ca9eb;
-    color: #000000;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none;
-    /* Soft modern rounded corners matching the graphic */
-    border-radius: 10px; 
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.btn-resume-modern:hover {
-    background-color: #4db7fc;
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(60, 169, 235, 0.3);
-}
-
-/* Responsive adjustment for smaller mobile screens */
 @media (max-width: 768px) {
-    .button-group {
-        flex-direction: column;
-        align-items: flex-start;
+    section {
+        padding: 5rem 0;
     }
-    .btn-work-cyan, 
-    .btn-resume-modern {
-        width: 100%; /* Stack fully on small mobile screens */
-        max-width: 100%;
+    .hero-text h1 {
+        font-size: 2.75rem;
+    }
+    .nav-links {
+        display: none; 
+    }
+    .menu-toggle {
+        display: block;
+    }
+    .lightbox-content {
+        width: 95%;
+    }
+    
+    .hero-ctas {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .btn-resume-wide {
+        width: 100%;
     }
 }
