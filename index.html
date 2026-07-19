@@ -24,7 +24,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#portfolio">Projects</a></li>
-                <li><a href="certificates.html">Certificates</a></li
+                <li><a href="certificates.html">Certificates</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <div class="menu-toggle" id="mobile-menu">
@@ -42,25 +42,21 @@
                 <h1 class="glitch-text">Vishnu D.</h1>
                 <h2>Full-Stack Web Developer</h2>
                 <p class="subheadline">Building robust, scalable, and data-driven web applications from frontend to backend.</p>
+                
+                <!-- Updated 3D Pill Button Layout Block -->
                 <div class="hero-ctas">
-                   <div class="button-group">
-    <!-- Your original cyan button -->
-    <a href="#portfolio" class="btn-work-cyan">View My Work</a>
-    
-    <!-- The new modern View Resume button -->
-    <a href="vishnu_resume.pdf" target="_blank" class="btn-resume-modern">View Resume</a>
-</div>
+                    <a href="#portfolio" class="btn-pill-3d btn-work-pill">View My Work</a>
+                    <a href="vishnu_resume.pdf" target="_blank" class="btn-pill-3d btn-resume-pill">View Resume</a>
                 </div>
             </div>
+            
+            <!-- Updated Circular Frame Layout Block -->
             <div class="hero-visual">
-    <div class="profile-frame circle-frame">
-        <div class="profile-placeholder circle-placeholder">
-            <!-- Replace 'your-photo.jpg' with your actual image path -->
-            <img src="IMG_20260718_121938.jpg" alt="Profile" class="profile-img circle-img">
-        </div>
-    </div>
-</div>
-</div
+                <div class="profile-frame circle-frame">
+                    <div class="profile-placeholder circle-placeholder">
+                        <img src="IMG_20260718_121938.jpg" alt="Profile" class="profile-img circle-img">
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -188,50 +184,50 @@
         </div>
     </section>
 
-   <!-- Contact Section (Matches Image Split Layout) -->
-<footer id="contact" class="contact-section">
-    <div class="container">
-        <div class="contact-card-box">
-            
-            <!-- Left Panel: Text & Metadata Details -->
-            <div class="contact-info-panel">
-                <h2>Let's collaborate on a project!</h2>
-                <p class="contact-subtext">I am actively hunting for tech internships around Chennai. Drop a line if you have an opening or want to chat code.</p>
+    <!-- Contact Section -->
+    <footer id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-card-box">
                 
-                <div class="contact-meta-list">
-                    <div class="meta-item">
-                        <i class="fa-solid fa-envelope meta-icon-cyan"></i>
-                        <a href="mailto:dhamuvishnu12@gmail.com">dhamuvishnu12@gmail.com</a>
+                <!-- Left Panel: Text & Metadata Details -->
+                <div class="contact-info-panel">
+                    <h2>Let's collaborate on a project!</h2>
+                    <p class="contact-subtext">I am actively hunting for tech internships around Chennai. Drop a line if you have an opening or want to chat code.</p>
+                    
+                    <div class="contact-meta-list">
+                        <div class="meta-item">
+                            <i class="fa-solid fa-envelope meta-icon-cyan"></i>
+                            <a href="mailto:dhamuvishnu12@gmail.com">dhamuvishnu12@gmail.com</a>
+                        </div>
+                        <div class="meta-item">
+                            <i class="fa-solid fa-location-dot meta-icon-cyan"></i>
+                            <span>Chennai, Tamil Nadu, India</span>
+                        </div>
                     </div>
-                    <div class="meta-item">
-                        <i class="fa-solid fa-location-dot meta-icon-cyan"></i>
-                        <span>Chennai, Tamil Nadu, India</span>
+
+                    <!-- Minimal Social Icons -->
+                    <div class="contact-social-tray">
+                        <a href="https://www.linkedin.com/in/vishnu121/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="https://github.com" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
 
-                <!-- Minimal Social Icons -->
-                <div class="contact-social-tray">
-                    <a href="https://www.linkedin.com/in/vishnu121/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                </div>
+                <!-- Right Panel: Functional Input Form -->
+                <form class="contact-form-panel" action="https://formsubmit.co/dhamuvishnu12@gmail.com" method="POST">
+                    <div class="form-group">
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-submit-cyan">Send Message</button>
+                </form>
             </div>
-
-            <!-- Right Panel: Functional Input Form -->
-           <form class="contact-form-panel" action="https://formsubmit.co/dhamuvishnu12@gmail.com" method="POST">
-    <div class="form-group">
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-    </div>
-    <div class="form-group">
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
-    </div>
-    <div class="form-group">
-        <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-    </div>
-    <button type="submit" class="btn-submit-cyan">Send Message</button>
-</form>
         </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="script.js"></script>
 </body>
